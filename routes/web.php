@@ -22,3 +22,8 @@ Route::post('/authLogin', [AuthController::class, 'login']);
 Route::get('/logout', [AuthController::class, 'logout']);
 Route::get('/dasbor', [DashboardController::class, 'index'])->middleware('auth');
 Route::get('/dataMahasiswa', [DashboardController::class, 'data_Mahasiswa'])->middleware('admin');
+Route::get('/datamahasiswa/tambah', [DashboardController::class, 'tmbhMhs'])->middleware('admin');
+Route::post('/tambahdataMhs', [DashboardController::class, 'tmbhdataMhs'])->middleware('admin');
+Route::get('/datamhs/{id}', [DashboardController::class, 'editmhs'])->middleware('admin');
+Route::post('/editdataMhs/{id}', [DashboardController::class, 'ubahmhs'])->middleware('admin');
+Route::get('/dataPangajuan', [DashboardController::class, 'dataPngjn'])->middleware('admin');

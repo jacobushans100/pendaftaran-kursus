@@ -15,6 +15,8 @@ class CreateDataMahasiswaTable extends Migration
     {
         Schema::create('data_mahasiswa', function (Blueprint $table) {
             $table->id();
+            $table->integer('id_user');
+            $table->integer('id_kursus');
             $table->string('nama_dokumen');
             $table->string('kelas');
         });

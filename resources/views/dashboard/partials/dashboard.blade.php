@@ -41,7 +41,7 @@
 
 
     @include('dashboard.partials.sidebar')
-    @yield('content')
+
 
 
     <script src="/dashboard/js/bootstrap.bundle.min.js"></script>

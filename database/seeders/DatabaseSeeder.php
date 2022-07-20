@@ -19,14 +19,17 @@ class DatabaseSeeder extends Seeder
             'name' => 'Admin',
             'username' => 'admin11',
             'password' => Hash::make('1234'),
-            'role_id' => 1
+            'role_id' => 1,
+            'status' => 0
         ]);
         User::create([
             'name' => 'Bambang',
             'username' => 'bambang12',
             'password' => Hash::make('1234'),
             'npm' => '13399955',
-            'role_id' => 0
+            'kelas' => '4KA22',
+            'role_id' => 0,
+            'status' => 0
         ]);
         // \App\Models\User::factory(10)->create();
     }

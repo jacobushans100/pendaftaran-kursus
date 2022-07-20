@@ -11,4 +11,8 @@ class Data_mahasiswa extends Model
     protected $table = 'data_mahasiswa';
     protected $guarded = ['id'];
     public $timestamp = false;
+    public function user()
+    {
+        return $this->belongsTo('\App\models\User', 'id_user');
+    }
 }

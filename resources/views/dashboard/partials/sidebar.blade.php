@@ -20,9 +20,17 @@
                     </li>
                     @if (auth()->user()->role_id == 1)
                         <li class="nav-item">
-                            <a class="nav-link {{ Request::is('dataproduk*') ? 'active' : '' }}" href="/dataproduk">
+                            <a class="nav-link {{ Request::is('dataMahasiswa*') ? 'active' : '' }}"
+                                href="/dataMahasiswa">
                                 <span data-feather="file"></span>
                                 Data Mahasiswa
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Request::is('dataPangajuan*') ? 'active' : '' }}"
+                                href="/dataPangajuan">
+                                <span data-feather="file"></span>
+                                Data pengajuan
                             </a>
                         </li>
                         <li class="nav-item">
@@ -52,6 +60,6 @@
                 </ul>
             </div>
         </nav>
-
+        @yield('content')
     </div>
 </div>
