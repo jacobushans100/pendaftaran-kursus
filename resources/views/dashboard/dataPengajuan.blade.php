@@ -41,8 +41,8 @@
                                 </thead>
                                 <tbody>
                                     @if ($mhs1->count())
+                                        {{-- @foreach ($mhs1 as $dp1) --}}
                                         @foreach ($mhs1 as $dp)
-                                            {{-- @foreach ($mhs1 as $dp1) --}}
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $dp->name }}</td>
@@ -70,7 +70,11 @@
                                             {{-- @endforeach --}}
                                         @endforeach
                                     @else
-                                        <h2 class="text-center">belum ada data</h2>
+                                        <tr>
+                                            <td>
+                                                <h2 class="text-center" colspan="4">belum ada data</h2>
+                                            </td>
+                                        </tr>
                                     @endif
                                 </tbody>
                             </table>
