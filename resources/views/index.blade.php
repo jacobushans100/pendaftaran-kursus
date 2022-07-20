@@ -32,8 +32,9 @@
                             <div class="card-body text-center">
                                 <p class="card-text">{{ $pd->nama_kursus }}</p>
                                 <p class="card-text">{{ $pd->deskripsi_kursus }}</p>
-                                <p class="card-text">{{ \Carbon\Carbon::parse($pd->waktu)->format('d F Y') }}</p>
-                                <p class="card-text">{{ $pd->lama_kursus }} jam</p>
+                                <p class="card-text">Tanggal Pelaksanaan
+                                    {{ \Carbon\Carbon::parse($pd->waktu)->format('d F Y') }}</p>
+                                <p class="card-text">Lama Kursus {{ $pd->lama_kursus }} jam</p>
                             </div>
                         </div>
                     </div>

@@ -34,9 +34,10 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">no</th>
-                                        <th scope="col">nama Mahasiswa</th>
-                                        <th scope="col">Status</th>
-                                        <th scope="col">aksi</th>
+                                        <th scope="col">nama kursus</th>
+                                        <th scope="col">Deskripsi</th>
+                                        <th scope="col">Lama Kursus</th>
+                                        <th scope="col">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -47,7 +48,7 @@
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $dp->nama_kursus }}</td>
                                                 <td>{{ $dp->deskripsi_kursus }}</td>
-                                                <td>{{ $dp->lama_kursus }}</td>
+                                                <td>{{ $dp->lama_kursus }} Jam</td>
                                                 {{-- <td>{{ $dp1->nama_dokumen }}</td> --}}
                                                 <td>
                                                     <a class="btn btn-warning text-white"
