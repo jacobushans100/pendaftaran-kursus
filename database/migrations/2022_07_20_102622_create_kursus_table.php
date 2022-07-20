@@ -19,6 +19,7 @@ class CreateKursusTable extends Migration
             $table->text('deskripsi_kursus');
             $table->dateTime('waktu');
             $table->string('lama_kursus');
+            $table->timestamps();
         });
     }
 

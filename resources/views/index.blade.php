@@ -23,29 +23,25 @@
 
         <h1 class="text-center mt-10">Pilihan Kursus</h1>
         <!-- content -->
-        {{-- <div class="row">
-            <h1 class="pt-4">Produk Terbaru</h1>
-            @if ($produk->count())
-                @foreach ($produk as $pd)
+        <div class="row">
+            <h1 class="pt-4">Pilihan Kursus</h1>
+            @if ($kursus->count())
+                @foreach ($kursus as $pd)
                     <div class="col-lg-4">
                         <div class="card mt-4">
-                            <img src="{{ '/storage/produk/' . $pd->gambar }}" class="card-img-top" alt="...">
                             <div class="card-body text-center">
-                                <p class="card-text">{{ $pd->nama_barang }}</p>
-                                <p class="card-text">Rp. {{ $pd->harga }},-</p>
-                                <div class="d-grid gap-2">
-                                    <a href="/produkDetail/{{ $pd->id }}" class="btn btn-primary">
-                                        <i class="bi bi-cart"></i> Pilih
-                                    </a>
-                                </div>
+                                <p class="card-text">{{ $pd->nama_kursus }}</p>
+                                <p class="card-text">{{ $pd->deskripsi_kursus }}</p>
+                                <p class="card-text">{{ \Carbon\Carbon::parse($pd->waktu)->format('d F Y') }}</p>
+                                <p class="card-text">{{ $pd->lama_kursus }} jam</p>
                             </div>
                         </div>
                     </div>
                 @endforeach
             @else
-                <h1 class="text-center mt-5">Belum ada produk</h1>
+                <h1 class="text-center mt-5">Belum ada kursus</h1>
             @endif
-        </div> --}}
+        </div>
     </div>
 
     <!-- end content -->

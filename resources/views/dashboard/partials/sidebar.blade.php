@@ -34,8 +34,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ Request::is('datapelanggan*') ? 'active' : '' }}"
-                                href="/datapelanggan">
+                            <a class="nav-link {{ Request::is('dataKursus*') ? 'active' : '' }}" href="/dataKursus">
                                 <span data-feather="file"></span>
                                 Data Kursus
                             </a>
@@ -43,8 +42,7 @@
                     @endif
                     @if (auth()->user()->role_id == 0)
                         <li class="nav-item">
-                            <a class="nav-link {{ Request::is('dataMahasiswa*') ? 'active' : '' }}"
-                                href="/dataMahasiswa">
+                            <a class="nav-link {{ Request::is('dataKursus*') ? 'active' : '' }}" href="/dataKursus">
                                 <span data-feather="file"></span>
                                 Data Kursus
                             </a>

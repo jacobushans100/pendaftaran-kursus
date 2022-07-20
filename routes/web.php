@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KursusController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,3 +28,4 @@ Route::post('/tambahdataMhs', [DashboardController::class, 'tmbhdataMhs'])->midd
 Route::get('/datamhs/{id}', [DashboardController::class, 'editmhs'])->middleware('admin');
 Route::post('/editdataMhs/{id}', [DashboardController::class, 'ubahmhs'])->middleware('admin');
 Route::get('/dataPangajuan', [DashboardController::class, 'dataPngjn'])->middleware('admin');
+Route::resource('/dataKursus', KursusController::class)->middleware('admin');

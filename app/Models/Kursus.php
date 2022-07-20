@@ -10,5 +10,5 @@ class Kursus extends Model
     use HasFactory;
     protected $table = 'kursus';
     protected $guarded = ['id'];
-    public $timestamp = false;
+    // public $timestamp = false;
 }
