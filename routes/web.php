@@ -29,3 +29,6 @@ Route::get('/datamhs/{id}', [DashboardController::class, 'editmhs'])->middleware
 Route::post('/editdataMhs/{id}', [DashboardController::class, 'ubahmhs'])->middleware('admin');
 Route::get('/dataPangajuan', [DashboardController::class, 'dataPngjn'])->middleware('admin');
 Route::resource('/dataKursus', KursusController::class)->middleware('admin');
+Route::get('/pengajuan', [DashboardController::class, 'pgjn']);
+Route::get('/pengajuan/tambahpengajuan', [DashboardController::class, 'tmbhpgjn']);
+Route::post('/tambahdatapgjn', [DashboardController::class, 'tmbhdatapgjn']);

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Data_mahasiswa;
 use App\Models\Status;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Kursus;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -38,13 +40,14 @@ class DashboardController extends Controller
     {
         // return $request;
         $validatedData = $request->all();
+        $npm = $request->input('npm');
         // $validatedData = $request->validate([
         //     'name' => ['required', 'max:30'],
         //     'npm' => ['required'],
         //     'password' => ['required', 'min:5', 'max:20'],
         // ]);
         $validatedData['role_id'] = 0;
-        $validatedData['password'] = Hash::make($validatedData['password']);
+        $validatedData['password'] = Hash::make($npm);
         // return $validatedData;
         User::create($validatedData);
         return redirect('/dataMahasiswa')->with('success', 'berhasil menambahkan mahasiswa!');
@@ -75,5 +78,38 @@ class DashboardController extends Controller
         $mhs1 = Data_mahasiswa::where('id_user', $datamhs->id)->get();
         $title = 'Data pengajuan';
         return view('dashboard.dataPengajuan', compact('title', 'mhs1'));
+    }
+    public function pgjn()
+    {
+        return view('dashboard.pengajuan', [
+            'title' => 'Daftar Kursus',
+            'kursus' => Data_mahasiswa::get()
+        ]);
+    }
+
+    public function tmbhpgjn()
+    {
+        return view('dashboard.tambahpengajuan', [
+            'title' => 'Tambah pengajuan',
+            'kursus' => Kursus::get()
+        ]);
+    }
+
+    public function tmbhdatapgjn(Request $request)
+    {
+
+        $dataKursus = $request->validate([
+            'id_kursus' => 'required'
+        ]);
+        $request->hasFile('nama_dokumen');
+        $path = storage_path('app/public/file/');
+        $file = $request->file('nama_dokumen');
+        $name =  uniqid() . '_' . trim($file->getClientOriginalName());
+        $file->move($path, $name);
+        $dataKursus['nama_dokumen'] = $name;
+        $dataKursus['id_user'] = Auth::user()->id;
+        // return $dataKursus;
+        Data_mahasiswa::create($dataKursus);
+        return redirect('/pengajuan')->with('success', 'Berhasil menambahkan pengajuan!');
     }
 }

@@ -42,7 +42,7 @@
                     @endif
                     @if (auth()->user()->role_id == 0)
                         <li class="nav-item">
-                            <a class="nav-link {{ Request::is('dataKursus*') ? 'active' : '' }}" href="/dataKursus">
+                            <a class="nav-link {{ Request::is('pengajuan*') ? 'active' : '' }}" href="/pengajuan">
                                 <span data-feather="file"></span>
                                 Data Kursus
                             </a>

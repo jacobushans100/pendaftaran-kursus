@@ -18,7 +18,6 @@ class CreateDataMahasiswaTable extends Migration
             $table->integer('id_user');
             $table->integer('id_kursus');
             $table->string('nama_dokumen');
-            $table->string('kelas');
         });
     }
 

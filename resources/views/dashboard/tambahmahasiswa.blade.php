@@ -30,11 +30,6 @@
                             <input type="text" name="username" class="form-control" id="exampleFormControlInput1"
                                 placeholder="Username">
                         </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Password</label>
-                            <input type="password" name="password" class="form-control" id="exampleFormControlInput1"
-                                placeholder="Password">
-                        </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-success">Tambah Mahasiswa</button>
                         </div>

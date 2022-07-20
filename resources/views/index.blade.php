@@ -7,7 +7,7 @@
                     <div class="row">
                         <div class="col-lg-8">
                             <div class="row featurette">
-                                <h1 class="display-5 text-dark"> Selamat Datang di <br>Pendaftaran Kursus <br>
+                                <h1 class="display-5 text-dark"> Selamat Datang di <br>Wensite Pendaftaran Kursus <br>
                                     <strong>Universitas
                                         Jewepe</strong>
                                 </h1>
@@ -24,7 +24,6 @@
         <h1 class="text-center mt-10">Pilihan Kursus</h1>
         <!-- content -->
         <div class="row">
-            <h1 class="pt-4">Pilihan Kursus</h1>
             @if ($kursus->count())
                 @foreach ($kursus as $pd)
                     <div class="col-lg-4">
