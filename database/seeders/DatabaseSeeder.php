@@ -25,7 +25,8 @@ class DatabaseSeeder extends Seeder
             'name' => 'Bambang',
             'username' => 'bambang12',
             'password' => Hash::make('1234'),
-            'role_id' => 1
+            'npm' => '13399955',
+            'role_id' => 0
         ]);
         // \App\Models\User::factory(10)->create();
     }

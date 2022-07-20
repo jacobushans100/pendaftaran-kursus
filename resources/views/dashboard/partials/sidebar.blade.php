@@ -1,5 +1,5 @@
 <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Catsqu</a>
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Pendaftaran Kursus</a>
     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
         data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -18,26 +18,30 @@
                             Dashboard
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ Request::is('dataproduk*') ? 'active' : '' }}" href="/dataproduk">
-                            <span data-feather="file"></span>
-                            Data produk
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ Request::is('datapelanggan*') ? 'active' : '' }}" href="/datapelanggan">
-                            <span data-feather="file"></span>
-                            Data pelanggan
-                        </a>
-                    </li>
-                    @can('admin')
+                    @if (auth()->user()->role_id == 1)
                         <li class="nav-item">
-                            <a class="nav-link {{ Request::is('dataMahasiswa*') ? 'active' : '' }}" href="/dataMahasiswa">
+                            <a class="nav-link {{ Request::is('dataproduk*') ? 'active' : '' }}" href="/dataproduk">
                                 <span data-feather="file"></span>
-                                Data mahasiswa
+                                Data Mahasiswa
                             </a>
                         </li>
-                    @endcan
+                        <li class="nav-item">
+                            <a class="nav-link {{ Request::is('datapelanggan*') ? 'active' : '' }}"
+                                href="/datapelanggan">
+                                <span data-feather="file"></span>
+                                Data Kursus
+                            </a>
+                        </li>
+                    @endif
+                    @if (auth()->user()->role_id == 0)
+                        <li class="nav-item">
+                            <a class="nav-link {{ Request::is('dataMahasiswa*') ? 'active' : '' }}"
+                                href="/dataMahasiswa">
+                                <span data-feather="file"></span>
+                                Data Kursus
+                            </a>
+                        </li>
+                    @endif
                     <li class="nav-item">
                         <a class="nav-link" href="/logout">
                             <span data-feather="file"></span>

@@ -21,3 +21,4 @@ Route::get('/login', [AuthController::class, 'index'])->name('login');
 Route::post('/authLogin', [AuthController::class, 'login']);
 Route::get('/logout', [AuthController::class, 'logout']);
 Route::get('/dasbor', [DashboardController::class, 'index'])->middleware('auth');
+Route::get('/dataMahasiswa', [DashboardController::class, 'data_Mahasiswa'])->middleware('admin');

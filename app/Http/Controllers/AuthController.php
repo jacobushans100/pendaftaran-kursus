@@ -20,8 +20,15 @@ class AuthController extends Controller
         $username = $request->only('username');
         $cekUsername = User::where('username', $username)->orWhere('npm', $username)->first();
         if ($cekUsername) {
-            Auth::attempt($request->only('username', 'password'));
-            return redirect('/dasbor');
+            $cobaLoginAdmin = Auth::attempt($request->only('username', 'password'));
+            if ($cobaLoginAdmin) {
+                return redirect('/dasbor');
+            } else {
+                $cobaLoginMhs = Auth::attempt(['npm' => $username, 'password' => $request->input('password')]);
+                if ($cobaLoginMhs) {
+                    return redirect('/dasbor');
+                }
+            }
         }
         return redirect('/login')->with('danger', 'Masukkan username dan password dengan benar!');
     }

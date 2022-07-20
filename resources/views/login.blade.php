@@ -22,7 +22,7 @@
                         @csrf
                         <div class="col-lg mt-2">
                             <input type="text" id="username" name="username" class="form-control"
-                                placeholder="NPM atau nama">
+                                placeholder="NPM atau username">
                         </div>
                         <div class="col-lg mt-2">
                             <input type="password" id="password" name="password" class="form-control"

@@ -11,4 +11,12 @@ class Status extends Model
     protected $table = 'status';
     protected $guarded = ['id'];
     public $timestamp = false;
+    public function user()
+    {
+        return $this->belongsTo('App\models\User');
+    }
+    public function data_mahasiswa()
+    {
+        return $this->belongsTo('App\models\Data_mahasiswa');
+    }
 }
