@@ -40,7 +40,6 @@
                                 </thead>
                                 <tbody>
                                     @if ($mhs1->count())
-                                        {{-- @foreach ($mhs1 as $dp1) --}}
                                         @foreach ($mhs1 as $dp)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
@@ -53,7 +52,6 @@
                                                         sudah disetujui
                                                     @endif
                                                 </td>
-                                                {{-- <td>{{ $dp1->nama_dokumen }}</td> --}}
                                                 <td>
                                                     @if ($dp->user->status == 0)
                                                         <form action="/ubahStatus/{{ $dp->id_user }}" method="POST"
@@ -68,7 +66,6 @@
                                                     @endif
                                                 </td>
                                             </tr>
-                                            {{-- @endforeach --}}
                                         @endforeach
                                     @else
                                         <tr>
