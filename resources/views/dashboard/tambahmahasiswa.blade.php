@@ -23,12 +23,18 @@
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">NPM</label>
                             <input type="text" name="npm" class="form-control" id="exampleFormControlInput1"
-                                placeholder="NPM">
+                                placeholder="NPM"
+                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..?)\../g, '$1').replace(/^0[^.]/, '0');">
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Username</label>
                             <input type="text" name="username" class="form-control" id="exampleFormControlInput1"
                                 placeholder="Username">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Kelas</label>
+                            <input type="text" name="kelas" class="form-control" id="exampleFormControlInput1"
+                                placeholder="Kelas">
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-success">Tambah Mahasiswa</button>

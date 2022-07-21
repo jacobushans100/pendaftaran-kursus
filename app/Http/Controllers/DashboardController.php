@@ -21,12 +21,10 @@ class DashboardController extends Controller
     public function data_Mahasiswa()
     {
         $mhs = User::where('role_id', 0)->get();
-        $datamhs = User::where('role_id', 0)->first();
-        $mhs1 = Data_mahasiswa::where('id_user', $datamhs->id)->get();
         // return $datamhs->id;
         // return $mhs1;
         $title = 'Data Mahasiswa';
-        return view('dashboard.datamahasiswa', compact('mhs', 'mhs1', 'title'));
+        return view('dashboard.datamahasiswa', compact('mhs', 'title'));
     }
 
     public function tmbhMhs()
@@ -70,12 +68,14 @@ class DashboardController extends Controller
             'kelas' => 'required',
         ]);
         User::where('id', $id)->update($datamhs);
-        return redirect('/dataMahasiswa')->with('success', 'berhasil menambahkan mahasiswa!');
+        return redirect('/dataMahasiswa')->with('success', 'berhasil mengubah data mahasiswa!');
     }
     public function dataPngjn()
     {
-        $datamhs = User::where('role_id', 0)->first();
-        $mhs1 = Data_mahasiswa::where('id_user', $datamhs->id)->get();
+        // $datamhs = User::where('role_id', 0)->get();
+        // return $datamhs;
+        $mhs1 = Data_mahasiswa::get();
+        // return $mhs1;
         $title = 'Data pengajuan';
         return view('dashboard.dataPengajuan', compact('title', 'mhs1'));
     }
@@ -83,7 +83,7 @@ class DashboardController extends Controller
     {
         return view('dashboard.pengajuan', [
             'title' => 'Daftar Kursus',
-            'kursus' => Data_mahasiswa::get()
+            'kursus' => Data_mahasiswa::where('id_user', Auth::user()->id)->get()
         ]);
     }
 
@@ -120,5 +120,22 @@ class DashboardController extends Controller
         $dataUser->save();
         return redirect('/dataPangajuan')->with('success', 'Berhasil Sumbit!');
         // return $dataUser;
+    }
+
+    public function hapusMHS($id)
+    {
+        $datamhs = User::findOrFail($id);
+        // return $datamhs;
+        $dataMHS = Data_mahasiswa::where('id_user', $datamhs->id)->first();
+        $datamahasiswa = Data_mahasiswa::where('id_user', $datamhs->id)->first();
+        if (!empty($datamahasiswa)) {
+            if ($dataMHS->nama_dokumen) {
+                $path = storage_path('app/public/file/' . $dataMHS->nama_dokumen);
+                unlink($path);
+            }
+            Data_mahasiswa::where('id_user', $datamhs->id)->delete();
+        }
+        User::where('id', $datamhs->id)->delete();
+        return redirect('/dataMahasiswa')->with('success', 'Berhasil Dihapus!');
     }
 }

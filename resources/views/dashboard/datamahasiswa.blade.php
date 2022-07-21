@@ -35,7 +35,8 @@
                                     <tr>
                                         <th scope="col">no</th>
                                         <th scope="col">nama Mahasiswa</th>
-                                        <th scope="col">Status</th>
+                                        <th scope="col">NPM</th>
+                                        <th scope="col">Kelas</th>
                                         <th scope="col">aksi</th>
                                     </tr>
                                 </thead>
@@ -45,13 +46,8 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $dp->name }}</td>
-                                            <td>
-                                                @if ($dp->status == 0)
-                                                    belum disetujui
-                                                @else
-                                                    sudah disetujui
-                                                @endif
-                                            </td>
+                                            <td>{{ $dp->npm }}</td>
+                                            <td>{{ $dp->kelas }}</td>
                                             {{-- <td>{{ $dp1->nama_dokumen }}</td> --}}
                                             <td>
                                                 <a class="btn btn-warning text-white"
