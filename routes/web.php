@@ -32,3 +32,4 @@ Route::resource('/dataKursus', KursusController::class)->middleware('admin');
 Route::get('/pengajuan', [DashboardController::class, 'pgjn']);
 Route::get('/pengajuan/tambahpengajuan', [DashboardController::class, 'tmbhpgjn']);
 Route::post('/tambahdatapgjn', [DashboardController::class, 'tmbhdatapgjn']);
+Route::put('/ubahStatus/{id_user}', [DashboardController::class, 'editStatus'])->middleware('admin');

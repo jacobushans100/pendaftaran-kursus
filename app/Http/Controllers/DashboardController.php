@@ -112,4 +112,13 @@ class DashboardController extends Controller
         Data_mahasiswa::create($dataKursus);
         return redirect('/pengajuan')->with('success', 'Berhasil menambahkan pengajuan!');
     }
+
+    public function editStatus($id_user)
+    {
+        $dataUser = User::findOrFail($id_user);
+        $dataUser->status = 1;
+        $dataUser->save();
+        return redirect('/dataPangajuan')->with('success', 'Berhasil Sumbit!');
+        // return $dataUser;
+    }
 }
