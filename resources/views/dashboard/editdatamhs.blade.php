@@ -30,6 +30,11 @@
                             <input type="text" name="npm" class="form-control" id="exampleFormControlInput1"
                                 placeholder="NPM" value="{{ $datamhs->npm }}">
                         </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Username</label>
+                            <input type="text" name="username" class="form-control" id="exampleFormControlInput1"
+                                placeholder="username" value="{{ $datamhs->username }}">
+                        </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-success">Ubah Mahasiswa</button>
                         </div>

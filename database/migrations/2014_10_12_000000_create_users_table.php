@@ -22,7 +22,6 @@ class CreateUsersTable extends Migration
             $table->integer('npm')->nullable();
             $table->string('kelas')->nullable();
             $table->boolean('role_id');
-            $table->boolean('status')->nullable();
         });
     }
 

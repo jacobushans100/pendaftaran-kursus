@@ -33,6 +33,7 @@
                                     <tr>
                                         <th scope="col">No</th>
                                         <th scope="col">Nama Mahasiswa</th>
+                                        <th scope="col">Nama Kursus</th>
                                         <th scope="col">File</th>
                                         <th scope="col">Status</th>
                                         <th scope="col">aksi</th>
@@ -44,21 +45,22 @@
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $dp->user->name }}</td>
+                                                <td>{{ $dp->kursus->nama_kursus }}</td>
                                                 <td>{{ $dp->nama_dokumen }}</td>
                                                 <td>
-                                                    @if ($dp->user->status == 0)
+                                                    @if ($dp->status == 0)
                                                         belum disetujui
                                                     @else
                                                         sudah disetujui
                                                     @endif
                                                 </td>
                                                 <td>
-                                                    @if ($dp->user->status == 0)
-                                                        <form action="/ubahStatus/{{ $dp->id_user }}" method="POST"
+                                                    @if ($dp->status == 0)
+                                                        <form action="/ubahStatus/{{ $dp->id }}" method="POST"
                                                             class="d-inline">
                                                             @method('put')
                                                             @csrf
-                                                            <button class="btn btn-warning text-white"
+                                                            <button class="btn btn-warning text-dark"
                                                                 onclick="return confirm('Anda yakin ingin submit?')"
                                                                 type="submit">Submit</button>
                                                         </form>

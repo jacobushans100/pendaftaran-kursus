@@ -21,7 +21,7 @@
             </div>
         </div>
 
-        <h1 class="text-center mt-10">Pilihan Kursus</h1>
+        <h1 class="text-center mt-10">Informasi Kursus</h1>
         <!-- content -->
         <div class="row">
             @if ($kursus->count())

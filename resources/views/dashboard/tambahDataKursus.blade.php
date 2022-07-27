@@ -30,7 +30,7 @@
                             <input type="date" name="waktu" class="form-control" id="exampleFormControlInput1">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Lama Kursus</label>
+                            <label for="exampleFormControlInput1" class="form-label">Lama Kursus dalam jam</label>
                             <input type="text" name="lama_kursus" class="form-control" id="exampleFormControlInput1"
                                 placeholder="lama kursus"
                                 oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..?)\../g, '$1').replace(/^0[^.]/, '0');">

@@ -30,7 +30,7 @@ class AuthController extends Controller
                 }
             }
         }
-        return redirect('/login')->with('danger', 'Masukkan username dan password dengan benar!');
+        return redirect('/login')->with('danger', 'Masukkan npm atau username dan password dengan benar!');
     }
     public function logout()
     {

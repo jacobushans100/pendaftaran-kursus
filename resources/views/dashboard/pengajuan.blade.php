@@ -43,33 +43,18 @@
                                 <tbody>
 
                                     @foreach ($kursus as $dp)
-                                        {{-- @foreach ($mhs1 as $dp1) --}}
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $dp->kursus->nama_kursus }}</td>
                                             <td>{{ $dp->nama_dokumen }}</td>
                                             <td>
-                                                @if ($dp->user->status == 0)
+                                                @if ($dp->status == 0)
                                                     belum disetujui
                                                 @else
                                                     sudah disetujui
                                                 @endif
                                             </td>
-                                            {{-- <td>{{ $dp1->nama_dokumen }}</td> --}}
-                                            {{-- <td>
-                                                <a class="btn btn-warning text-white"
-                                                    href="/datamhs/{{ $dp->id }}">Edit</a>
-                                                <form action="/hapuspelanggan/{{ $dp->id }}" method="POST"
-                                                    class="d-inline">
-                                                    @method('delete')
-                                                    @csrf
-                                                    <button class="btn btn-danger text-white"
-                                                        onclick="return confirm('Anda yakin ingin hapus?')"
-                                                        type="submit">hapus</button>
-                                                </form>
-                                            </td> --}}
                                         </tr>
-                                        {{-- @endforeach --}}
                                     @endforeach
 
                                 </tbody>

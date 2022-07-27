@@ -65,6 +65,7 @@ class DashboardController extends Controller
         $datamhs = $request->validate([
             'name' => 'required',
             'npm' => 'required',
+            'username' => 'required',
             'kelas' => 'required',
         ]);
         User::where('id', $id)->update($datamhs);
@@ -108,14 +109,15 @@ class DashboardController extends Controller
         $file->move($path, $name);
         $dataKursus['nama_dokumen'] = $name;
         $dataKursus['id_user'] = Auth::user()->id;
+        $dataKursus['status'] = 0;
         // return $dataKursus;
         Data_mahasiswa::create($dataKursus);
         return redirect('/pengajuan')->with('success', 'Berhasil menambahkan pengajuan!');
     }
 
-    public function editStatus($id_user)
+    public function editStatus($id)
     {
-        $dataUser = User::findOrFail($id_user);
+        $dataUser = Data_Mahasiswa::findOrFail($id);
         $dataUser->status = 1;
         $dataUser->save();
         return redirect('/dataPangajuan')->with('success', 'Berhasil Sumbit!');

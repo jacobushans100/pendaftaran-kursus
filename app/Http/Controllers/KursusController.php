@@ -43,8 +43,8 @@ class KursusController extends Controller
         // return $request;
         $dataKursus = $request->validate([
             'nama_kursus' => ['required', 'max:30'],
-            'deskripsi_kursus' => ['required', 'max:30'],
-            'waktu' => ['required', 'date'],
+            'deskripsi_kursus' => ['required'],
+            'waktu' => ['required'],
             'lama_kursus' => ['required', 'max:3']
         ]);
         Kursus::create($dataKursus);
@@ -86,10 +86,11 @@ class KursusController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //return $request;
         $dataKursus = $request->validate([
             'nama_kursus' => ['required', 'max:30'],
-            'deskripsi_kursus' => ['required', 'max:30'],
-            'waktu' => ['required', 'date'],
+            'deskripsi_kursus' => ['required'],
+            'waktu' => ['date'],
             'lama_kursus' => ['required', 'max:3']
         ]);
         Kursus::whereId($id)->update($dataKursus);

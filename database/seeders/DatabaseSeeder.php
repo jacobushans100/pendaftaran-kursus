@@ -21,7 +21,6 @@ class DatabaseSeeder extends Seeder
             'username' => 'admin11',
             'password' => Hash::make('1234'),
             'role_id' => 1,
-            'status' => 0
         ]);
         User::create([
             'name' => 'Bambang',
@@ -30,7 +29,6 @@ class DatabaseSeeder extends Seeder
             'npm' => '13399955',
             'kelas' => '4KA22',
             'role_id' => 0,
-            'status' => 0
         ]);
         Kursus::create([
             'nama_kursus' => 'Bahasa PHP',
